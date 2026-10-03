@@ -170,21 +170,48 @@ body{
 }
 .vx-top{margin-bottom:26px}
 .vx-brand{position:relative}
-.vx-brand:after{
-  content:"Create a clean masked tab";
-  position:absolute;
-  top:47px;
-  left:50%;
-  transform:translateX(-50%);
-  white-space:nowrap;
-  font-size:11px;
+
+.vx-brand{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+}
+.vx-brand-line{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  line-height:1;
+}
+.vx-logo{
+  width:auto;
+  height:112px;
+  max-width:260px;
+  display:block;
+  object-fit:contain;
+  background:none;
+  border:0;
+  border-radius:0;
+}
+.vx-brand-name{
+  font-size:34px;
+  line-height:1;
+  font-weight:750;
+  letter-spacing:-1.2px;
+  color:#171719;
+}
+.vx-brand-sub{
+  font-size:12px;
+  line-height:1.2;
   font-weight:650;
-  letter-spacing:.04em;
+  letter-spacing:.035em;
   color:#96969c;
 }
-.vx-logo{width:auto;height:86px;max-width:auto;object-fit:contain;background:none;border:0;border-radius:0}
 
-.vx-grid{gap:16px;margin-top:38px}
+.vx-grid{gap:16px;margin-top:22px}
 label{
   margin:0 0 7px 2px;
   font-size:11px;
@@ -285,13 +312,19 @@ input[type=file]::file-selector-button{
   font-weight:650;
   letter-spacing:.04em;
 }
-.vx-footer-logo{height:24px;width:auto;display:block;object-fit:contain}
 .vx-footer-dot{width:4px;height:4px;border-radius:50%;background:#b8b8bd}
 @media(max-width:560px){
   body{overflow:auto;padding:18px 0}
   .vx-shell{padding:23px;width:min(92vw,520px);border-radius:22px}
   .vx-grid{margin-top:36px}
 }
+
+@media(max-width:560px){
+  .vx-logo{height:92px;max-width:215px}
+  .vx-brand-name{font-size:30px}
+  .vx-brand-line{gap:10px}
+}
+
 </style>
 </head>
 <body>
@@ -299,8 +332,12 @@ input[type=file]::file-selector-button{
 
 <section class="vx-shell">
   <div class="vx-top">
-    <div class="vx-brand" aria-label="VX MASKER">
-      <img class="vx-logo" src="https://raw.githubusercontent.com/vxservice/maskercode/main/logo.png" alt="VX MASKER" draggable="false">
+    <div class="vx-brand" aria-label="VX Masker">
+      <div class="vx-brand-line">
+        <img class="vx-logo" src="https://raw.githubusercontent.com/vxservice/maskercode/main/logo.png" alt="VX" draggable="false">
+        <span class="vx-brand-name">Masker</span>
+      </div>
+      <div class="vx-brand-sub">Create a clean masked tab</div>
     </div>
   </div>
 
@@ -340,7 +377,7 @@ input[type=file]::file-selector-button{
 
     <button id="download">Create HTML</button>
   </div>
-  <div class="vx-footer"><img class="vx-footer-logo" src="https://raw.githubusercontent.com/vxservice/maskercode/main/logo.png" alt="VX"><span class="vx-footer-dot"></span><span>LOCAL GENERATOR</span></div>
+  <div class="vx-footer"><span>LOCAL GENERATOR</span></div>
 </section>
 
 <script>
@@ -599,6 +636,13 @@ ${icon?`<link rel="icon" href="${esc(icon)}">`:""}
 <style>
 html,body{margin:0;width:100%;height:100%;overflow:hidden}
 iframe{width:100%;height:100%;border:0;display:block}
+
+@media(max-width:560px){
+  .vx-logo{height:92px;max-width:215px}
+  .vx-brand-name{font-size:30px}
+  .vx-brand-line{gap:10px}
+}
+
 </style>
 </head>
 <body>
@@ -634,8 +678,3 @@ download.addEventListener("click",()=>{
 </script>
 </body>
 </html>
-<style>
-.vx-top{display:flex;align-items:center;justify-content:center;margin-bottom:24px}
-.vx-brand{display:flex;align-items:center;justify-content:center;width:100%}
-.vx-logo{width:auto;height:86px;max-width:auto;display:block;object-fit:contain;background:none;border:0;border-radius:0}
-</style>
